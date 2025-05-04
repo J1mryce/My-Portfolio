@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="CSS/profile.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box; /* Inclut le padding dans la largeur et la hauteur */
+        }
+
+        .navbar-wrapper {
+            padding-top: 30px; /* Hauteur de la navbar */
+        }
+
+        .cv-container {
+          padding-right: 45px;
+            display: flex;
+            justify-content: flex-start; /* Aligne à gauche */
+        }
+
+        .cv-blurred-container {
+    position: relative; /* IMPORTANT : Crée le contexte de positionnement */
+    width: fit-content; /* Ajuste la largeur au contenu */
+}
+
+
+        .cv-blurred-image {
+          margin-left: -205px;
+            max-width: 76%; /* Ajustez selon la largeur souhaitée */
+            height: auto;
+            filter: blur(5px);
+            display: block; /* Empêche l'image d'ajouter un espace supplémentaire en bas */
+        }
+
+        .view-cv-button {
+            position: absolute;
+            top: 50%;
+            margin-left: 20px;
+            transform: translate(-50%, -50%); /* Centre le bouton sur l'image */
+            padding: 10px 20px;
+            background-color: rgba(0, 123, 255, 0.7); /* Bleu avec transparence */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 10; /* Assure que le bouton est au-dessus de l'image */
+        }
+
+        .popup-overlay {
+            display: none; /* Initialement caché */
+            position: fixed; /* Couvre toute la fenêtre */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan semi-transparent */
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            z-index: 1000; /* Assure que le popup est au-dessus du reste */
+        }
+
+        .popup-cv {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 30%; /* Ajustez la largeur maximale du popup */
+            max-height: 100%; /* Ajustez la hauteur maximale du popup */
+            text-align: center; /* Centre l'image dans le popup */
+            position: relative; /* Nécessaire pour positionner le bouton de fermeture */
+        }
+
+        .popup-cv img {
+            max-width: 98%;
+            height: auto;
+        }
+
+
+        .cv-text-block {
+            flex-grow: 1; /* Permet au bloc de texte de prendre l'espace restant */
+            padding: 10px;
+            color: #a2e8fd;
+            /* Ajoutez d'autres styles pour le bloc de texte si nécessaire */
+        }
+
+        .close-button {
+     position: relative;
+     left: 370px;
+            font-size: 70px;
+            font-weight: bold;
+            color: #d31111;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<div class="unknow">
+<body>
+    <header>
+        <section id="navigation">
+        <div class="true-navbar" id="menu">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="logo-portfolio">
+                    <a href="Intro.html"> <img class="img" id="logo" src="IMG/file1Fichier 4.png" width="80" ></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">MON PROFIL</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small>
+                            </button>
+
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            </nav>
+        </section>
+    </header>
+    <div class="container">
+      <div class="rowN1">
+      <div class="row" style="margin-top: 86px !important;">
+
+        <div class="col">
+          <div class="navbar-wrapper">
+            <div class="cv-container">
+                <div class="cv-blurred-container">
+                    <img src="IMG/Preview/Jimryce Jouenne CV V2.jpg" alt="CV Flouté" class="cv-blurred-image" id="blurredCv">
+                    <button class="view-cv-button" onclick="openPopup()">Voir mon CV</button>
+                
+                  </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="col">
+
+          <div class="cv-text-block">
+
+
+        <H1>A PROPOS DE MOI</H1>
+          Permettez-moi de me présenter, je m'appelle jimryce JOUENNE et je suis actuellement en 2ᵉ année de BUT MMI (Métiers Du Multimédia Et De l'Internet) à l'IUT de Meaux dans le parcours développement web et dispositifs interactifs.
+<br>
+<br>
+          Il s'agit d'une formation qui permet de développer diverses compétences dans des domaines d'activités tels que :
+          <br>
+          <br>
+          - Le Design graphique : Création de logos, d'identité visuels ainsi que <br> de chartes graphiques via les logiciels de la suite Adobe
+          <br>
+          <br>
+          <br>- Le développement web : Domaine qui regroupe les activités <br>
+          tel que la conception et création d'un site web ou bien d'applications mobiles via l'utilisation de langages tels que HTML/CSS, JavaScript ou de Framework tel que BootStrap.<br>
+          <br>
+          <br>
+          – L'Audiovisuel : Utilisation de logiciels de montage vidéo et de créations d'effets visuels.<br>Ce domaine regroupe également tout ce qui est lié au motion design et autres projets d'animation graphique.<br>
+
+          <br>
+          <br>
+          Étant très intéressé par le domaine du jeu vidéo, j'ai choisi d'intégrer cette formation afin de pouvoir développer les compétences nécessaires pour devenir Game Designer.
+
+
+Ce métier consiste à imaginer plusieurs éléments d’un jeu vidéo tel que
+les personnages, le décor, l’histoire et le gameplay, <br>c'est-à-dire comment le jeu va être joué.
+
+
+
+Après avoir conceptualisé ces éléments, le game designer va ensuite les créer et les intégrer dans le jeu.
+<br>
+<br>
+<br>
+À l’heure actuelle, je suis à la recherche d’un stage d’une durée de 8 semaines dans le domaine de la modélisation 3D ou du développement Web à partir de début avril.
+<br>
+<br>
+<br>
+
+Motivé et ayant envie d’apprendre, je serais prêt à faire part de mes compétences acquise au cours de mes années d’études pour aider les entreprises <br>
+ainsi que les membres de leurs équipe dans la réalisation de leurs différents traveaux.
+
+        </p>
+        </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="rowN2">
+        <div class="row" style="margin-top: 145px !important;">
+          <div class="col">
+           <p class="mon_parcours">
+         En 2023, j'ai préparé l'obtention de mon bac STMG (option Mercatique) au lycée Saint-exupéry à Créteil.<br>
+              C'est durant cette période que j'ai obtenu des connaissances et des compétences dans des domaines tels que le droit, le marketing et également le management.<br><br>
+              
+              Au moment de réaliser mes vœux sur Parcoursup, j’avais choisi en priorité tous les IUT qui proposaient le BUT MMI comme formation.<br><br>
+              
+              Lorsque j’ai reçu les résultats des candidatures, je n’avais été accepté qu'en BTS SIO.<br><br>C’est à la fin du mois d’août, peu de temps avant la rentrée, que j’ai reçu une proposition d’admission de la part de l’IUT de Meaux.<br>
+              
+              Malgré que l’IUT se situe loin de mon domicile et que je dois donc faire 2 heures de transport, cela n’a pas changé ma détermination à rejoindre la formation.<br>
+              
+              Aujourd’hui, j’en suis à ma 2ème année de BUT et je suis bien décidé à réaliser ma 3ème et dernière année. </p>
+          
+            
+           </p>
+          </div>
+          <div class="col">
+          <img src="./IMG/img-mon-profil-PP.gif">
+          </div>
+        </div>
+    </div>
+
+    <div class="rowN3">
+        <div class="row" style="margin-top: 145px !important;">
+
+          <div class="col">
+            <img src="./IMG/game-art.jpeg" class="game-design">
+          </div>
+
+          <div class="col">
+            <p class="mon_parcours"> En 2023, j'ai préparé l'obtention de mon bac STMG (option Mercatique) au lycée Saint-exupéry à Créteil.<br>
+              C'est durant cette période que j'ai obtenu des connaissances et des compétences dans des domaines tels que le droit, le marketing et également le management.<br><br>
+              
+              Au moment de réaliser mes vœux sur Parcoursup, j’avais choisi en priorité tous les IUT qui proposaient le BUT MMI comme formation.<br><br>
+              
+              Lorsque j’ai reçu les résultats des candidatures, je n’avais été accepté qu'en BTS SIO.<br><br>C’est à la fin du mois d’août, peu de temps avant la rentrée, que j’ai reçu une proposition d’admission de la part de l’IUT de Meaux.<br>
+              
+              Malgré que l’IUT se situe loin de mon domicile et que je dois donc faire 2 heures de transport, cela n’a pas changé ma détermination à rejoindre la formation.<br>
+              
+              Aujourd’hui, j’en suis à ma 2ème année de BUT et je suis bien décidé à réaliser ma 3ème et dernière année. </p>
+          </div>
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+      
+   
+  
+
+ 
+  <div id="cvPopup" class="popup-overlay">
+      <div class="popup-cv">
+          <button class="close-button" onclick="closePopup()">&times;</button>
+          <img src="IMG/Preview/Jimryce Jouenne CV V2.jpg" alt="Votre CV">
+      </div>
+  </div>
+
+  <script>
+      function openPopup() {
+          document.getElementById('cvPopup').style.display = 'flex';
+      }
+
+      function closePopup() {
+          document.getElementById('cvPopup').style.display = 'none';
+      }
+  </script>
+</body>
+</html>
