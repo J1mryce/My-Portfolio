@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
 body{
-    background-image: url('/IMG/workspace.gif');
+    background-image: url('../IMG/workspace.gif');
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(4px);
