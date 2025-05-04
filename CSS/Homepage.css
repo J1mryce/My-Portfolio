@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ntr');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+/*body {
+    background-image: url("../IMG/medroid.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+*/
+div.unknow {
+    background: linear-gradient(to right, #39106e, #012d35); /* Dégradé horizontal */
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: fixed;
+    /*background-image: url("../IMG/39e8eb4ecf93d7f75c4fc91768e4b040.jpg");*/
+    position: relative; /* Required for pseudo-element positioning */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+}
+
+div.unknow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../IMG/39e8eb4ecf93d7f75c4fc91768e4b040.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Adjust the opacity as needed */
+    z-index: -1; /* Place behind the content */
+}
+
+a.nav-link:hover
+
+.text-muted{
+    font-size: 30px;
+    font-family: "poppins", sans-serif;
+
+}
+
+div.intro-text{
+    flex: 1; /* Prend l'espace disponible à gauche de l'image */
+    padding: 20px;
+    position:relative;
+    text-align: left;
+    margin-left: 129px;
+    margin-top: 75px;
+    font-size: 103px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 500;
+    color: aliceblue; /* Fallback color */
+    background: linear-gradient(to right, #e01793, #51cccc); /* Dégradé horizontal */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 2px #e4fcc9, 0 0 5px #f4faba, 0 0 2px #ee59b0;
+}
+
+li.nav-item{
+    display: inline-block;
+    margin-left: 100px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+p.second-text-line{
+    color: rgb(144 242 255);
+    position: relative;
+    margin-left: 45px;
+    font-size: 37px;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 100;
+    border-radius: 70px;
+    width: 45%;
+    top: 63px;
+}
+
+div.intro-text p {
+    animation: colorShift 5s infinite alternate;
+    text-shadow: 0 0 3px #c9e9fc, 0 0 3px #bafaef, 0  4px #ee59b0;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+}
+
+@keyframes colorShift {
+    0% {
+        background-color: rgba(30, 0, 56, 0.3);
+    }
+    100% {
+        background-color: rgba(0, 51, 102, 0.3);
+    }
+}
+

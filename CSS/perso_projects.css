@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ntr');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+body {
+    background-image: url("../IMG/bencin-studios-pixelartbackground.gif");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    
+    
+}
+
+div.unknow{
+
+    background-color: rgba(84, 38, 112, 0.726);
+    width: 100%;
+    height:3000px;
+    
+    backdrop-filter: blur(3px);
+    
+    
+}
+section#navigation{
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(7px);
+}
+
+a.nav-link
+{
+    font-size: 35px;
+color: #f1e6e6;
+font-family: "Jersey 10", sans-serif;
+font-weight: 100;
+font-style: normal;
+    }
+    a.nav-link:hover
+{
+    color: rgba(174, 206, 253, 0.808);
+    
+    }
+    
+    .text-muted{
+        font-size: 30px;
+        font-family: "poppins", sans-serif;
+    
+    }
+
+
+
+
+    .rounded.d-block{
+        width: 20%;
+        margin-top: 140x;
+        background-color: rgba(3, 44, 99, 0.185);
+        backdrop-filter: grayscale(88%);
+        margin-left: 56px;
+        margin-bottom: 28px;
+    }
+
+    
+
+    .image-container img {
+        float: left; /* Aligne l'image à gauche */
+        margin-right: 90px; /* Ajoute un espace entre l'image et le texte */
+         /* Image dans un container spécifique */
+  border: 4px solid rgba(140, 57, 235, 0.664); /* Bordure rouge en pointillés de 4 pixels */
+    }
+    .image-container {
+        display: flex; /* Active Flexbox */
+        align-items: center; /* Centre verticalement les éléments */
+    }
+
+
+
+
+    button#open.nav-link
+    {
+        background-color: #ffffff;
+        border-radius: 90px;
+        width: 100%;
+        border: 10px;
+        font-size: 30px;
+    color: #181414;
+    font-family: "poppins", sans-serif;
+    font-weight: 700;
+    margin-left: 50px;
+        }
+
+    div.intro-text{
+        color: aliceblue;
+        position:relative;
+        text-align: center;
+        margin-top: 120px;
+        font-size: 80px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+
+    }
+
+    li.nav-item{
+        display: inline-block;
+        margin-left: 100px;
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+
+
+    .infos{
+        width: 50%;
+    }

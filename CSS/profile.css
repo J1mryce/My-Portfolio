@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ntr');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+body {
+    background-image: url("../IMG/mario.gif");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center calc(0% - 133px); 
+}
+
+div.unknow{
+
+    background-color: rgba(135, 11, 211, 0.445);
+    width: 100%;
+    height: 100%;
+}
+
+#navigation{
+    background-color: rgba(1, 36, 53, 0.8);
+    backdrop-filter: blur(7px);
+    width: 100%;
+}
+
+a.nav-link
+{
+    font-size: 35px;
+color: #f1e6e6;
+font-family: "Jersey 10", sans-serif;
+font-weight: 100;
+font-style: normal;
+    }
+
+    a.nav-link:hover{
+
+        color: bisque;
+    }
+    
+
+
+    li.nav-item{
+        display: inline-block;
+        margin-left: 100px;
+        margin-right: 10px;
+        white-space: nowrap;
+    }
+
+    img.img-fluid{
+        position:relative;
+        border-radius: 1300px;
+     display:flex;
+  margin-left: 45%;
+  top: 40px;
+  
+  
+    }
+
+    article.introduction{
+        background-color: rgba(100, 11, 216, 0.658);
+        width: 100%;
+       height: 300px;
+        
+        
+    }
+
+    p.intro-page{
+      top: 46%;
+        width: 150%;
+        text-align: left;
+        position: relative;
+        right: 20%;
+font-size: 25px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    }
+
+    h1.parcours{
+        
+    
+        text-align: right;
+    }
+
+   
+
+    p.mon_projet{
+        width: 50%;
+    }
+
+    p.a_propos{
+        width: 73%;
+        text-align: left;
+        margin-left: 104px;
+        margin-bottom: 10%;
+    }
+
+    h1.titre_a_propos{
+        margin-bottom: 110px;
+        position: relative;
+        top: 35px;
+
+    }
+
+    button#open.nav-link
+    {
+        background-color: #ffffff;
+        border-radius: 90px;
+        width: 100%;
+        border: 10px;
+        font-size: 30px;
+    color: #181414;
+    font-family: "poppins", sans-serif;
+    font-weight: 700;
+    margin-left: 50px;
+        }
+
+.text-muted{
+    font-size: 30px;
+    font-family: "poppins", sans-serif;
+
+}
+
+    .profil{
+        top: 57px;
+        position: relative;
+       text-align: center;
+       background-color: #140220c5;
+       color: #f1e6e6;
+       width: 65%;
+       margin: auto;
+       font-size: 22px;
+       border: #f1e6e6;
+       border-radius: 36px;
+       margin-bottom: 20%;
+    }
+
+
+
+h1.parcours{
+
+    margin-right: 130px;
+    margin-bottom: 110px;
+    position: relative;
+    top: 35px;
+    text-align: right;
+
+}
+
+ p.mon_parcours{
+    font-size: 28px;
+    color: aliceblue; 
+    }
+
+
+.projet{
+
+    position: relative;
+   text-align: center;
+   background-color: #140220c5;
+   color: #f1e6e6;
+   width: 65%;
+   margin-right: auto;
+   font-size: 25px;
+   border: #f1e6e6;
+   border-radius: 36px;
+   margin-bottom: 20%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+ 
+   margin-top: 5%;
+
+}
+
+h1.project{
+    margin-left: 130px;
+    margin-bottom: 110px;
+    position: relative;
+    top: 35px;
+    text-align: left;
+
+}
+
+
+p.mon_projet{
+
+    width: 73%;
+    text-align: left;
+    margin-left: 104px;
+    margin-bottom: 10%;
+
+}
+
+
+.cv_img {
+    right: 100%;
+    height: 850px;
+    width: 650px;
+    position: relative;
+  }
+  
+  .cv_img img { /* Target the image inside the .cv_img container */
+    display: block; /* Make the image a block-level element */
+    margin: 0 auto; /* Center horizontally */
+    height: 100%; /* Optional: Make the image fill the container height */
+    width: 100%;  /* Optional: Make the image fill the container width */
+    object-fit: cover; /* Optional: Scale the image to cover the container */
+  }
+
+
+div.etude {
+
+    top: 57px;
+    position: relative;
+   text-align: center;
+   background-color: #140220c5;
+   color: #f1e6e6;
+   width: 54%;
+   margin-left: auto;
+   font-size: 25px;
+   border: #f1e6e6;
+   border-radius: 36px;
+   margin-bottom: 20%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+
+
+
+}
+
+
+   #cv.btn.btn-outline-primary {
+
+       color: rgb(240, 215, 255);
+       font-size: 38px;
+margin-bottom: 50px;
+background-color: #3d2e91;
+    }
+
+    #cv.btn.btn-outline-primary:hover {
+        background-color: rgb(141, 194, 236);
+        color: #3d2e91;
+    }
+
+    #profil {
+        background-color: rgba(3, 16, 59, 0.74);
+        min-height: 100vh;
+        width: 100%; /* Assurez-vous que la largeur prend toute la page */
+    margin-top: 69px;
+    }
+
+
+
+
+
+
+
+
+
+
+    
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+    hr{
+        background-color: rgb(27, 221, 76);
+        stroke-width: 14%;
+    }
+
+    
+    
