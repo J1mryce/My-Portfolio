@@ -7,98 +7,6 @@
     <link rel="stylesheet" type="text/css" href="CSS/profile.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            margin: 0;
-            box-sizing: border-box; /* Inclut le padding dans la largeur et la hauteur */
-        }
-
-        .navbar-wrapper {
-            padding-top: 30px; /* Hauteur de la navbar */
-        }
-
-        .cv-container {
-          padding-right: 45px;
-            display: flex;
-            justify-content: flex-start; /* Aligne à gauche */
-        }
-
-        .cv-blurred-container {
-    position: relative; /* IMPORTANT : Crée le contexte de positionnement */
-    width: fit-content; /* Ajuste la largeur au contenu */
-}
-
-
-        .cv-blurred-image {
-          margin-left: -205px;
-            max-width: 76%; /* Ajustez selon la largeur souhaitée */
-            height: auto;
-            filter: blur(5px);
-            display: block; /* Empêche l'image d'ajouter un espace supplémentaire en bas */
-        }
-
-        .view-cv-button {
-            position: absolute;
-            top: 50%;
-            margin-left: 20px;
-            transform: translate(-50%, -50%); /* Centre le bouton sur l'image */
-            padding: 10px 20px;
-            background-color: rgba(0, 123, 255, 0.7); /* Bleu avec transparence */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 10; /* Assure que le bouton est au-dessus de l'image */
-        }
-
-        .popup-overlay {
-            display: none; /* Initialement caché */
-            position: fixed; /* Couvre toute la fenêtre */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Arrière-plan semi-transparent */
-            justify-content: center; /* Centre horizontalement */
-            align-items: center; /* Centre verticalement */
-            z-index: 1000; /* Assure que le popup est au-dessus du reste */
-        }
-
-        .popup-cv {
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            max-width: 30%; /* Ajustez la largeur maximale du popup */
-            max-height: 100%; /* Ajustez la hauteur maximale du popup */
-            text-align: center; /* Centre l'image dans le popup */
-            position: relative; /* Nécessaire pour positionner le bouton de fermeture */
-        }
-
-        .popup-cv img {
-            max-width: 98%;
-            height: auto;
-        }
-
-
-        .cv-text-block {
-            flex-grow: 1; /* Permet au bloc de texte de prendre l'espace restant */
-            padding: 10px;
-            color: #a2e8fd;
-            /* Ajoutez d'autres styles pour le bloc de texte si nécessaire */
-        }
-
-        .close-button {
-     position: relative;
-     left: 370px;
-            font-size: 70px;
-            font-weight: bold;
-            color: #d31111;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-    </style>
 </head>
 <div class="unknow">
 <body>
@@ -159,7 +67,7 @@
 
 
         <H1>A PROPOS DE MOI</H1>
-          Permettez-moi de me présenter, je m'appelle jimryce JOUENNE et je suis actuellement en 2ᵉ année de BUT MMI (Métiers Du Multimédia Et De l'Internet) à l'IUT de Meaux dans le parcours développement web et dispositifs interactifs.
+        <p class="a_propos">  Permettez-moi de me présenter, je m'appelle jimryce JOUENNE et je suis actuellement en 2ᵉ année de BUT MMI (Métiers Du Multimédia Et De l'Internet) à l'IUT de Meaux dans le parcours développement web et dispositifs interactifs.
 <br>
 <br>
           Il s'agit d'une formation qui permet de développer diverses compétences dans des domaines d'activités tels que :
@@ -204,11 +112,13 @@ ainsi que les membres de leurs équipe dans la réalisation de leurs différents
         </div>
       </div>
     </div>
+    <div class="pixel-bar">
+        <img src="IMG/pixel-bar.png" alt="Pixel Bar" class="pixel-bar-img">
+    </div>
     <div class="rowN2">
         <div class="row" style="margin-top: 145px !important;">
           <div class="col">
-           <p class="mon_parcours">
-         En 2023, j'ai préparé l'obtention de mon bac STMG (option Mercatique) au lycée Saint-exupéry à Créteil.<br>
+            <p class="mon_parcours"> En 2023, j'ai préparé l'obtention de mon bac STMG (option Mercatique) au lycée Saint-exupéry à Créteil.<br>
               C'est durant cette période que j'ai obtenu des connaissances et des compétences dans des domaines tels que le droit, le marketing et également le management.<br><br>
               
               Au moment de réaliser mes vœux sur Parcoursup, j’avais choisi en priorité tous les IUT qui proposaient le BUT MMI comme formation.<br><br>
@@ -218,23 +128,21 @@ ainsi que les membres de leurs équipe dans la réalisation de leurs différents
               Malgré que l’IUT se situe loin de mon domicile et que je dois donc faire 2 heures de transport, cela n’a pas changé ma détermination à rejoindre la formation.<br>
               
               Aujourd’hui, j’en suis à ma 2ème année de BUT et je suis bien décidé à réaliser ma 3ème et dernière année. </p>
-          
-            
-           </p>
           </div>
           <div class="col">
-          <img src="./IMG/img-mon-profil-PP.gif">
+            <img src="./IMG/img-mon-profil-PP.gif">
           </div>
         </div>
     </div>
-
+    <div class="pixel-bar">
+        <img src="IMG/pixel-bar.png" alt="Pixel Bar" class="pixel-bar-img">
+    </div>
     <div class="rowN3">
         <div class="row" style="margin-top: 145px !important;">
 
           <div class="col">
             <img src="./IMG/game-art.jpeg" class="game-design">
           </div>
-
           <div class="col">
             <p class="mon_parcours"> En 2023, j'ai préparé l'obtention de mon bac STMG (option Mercatique) au lycée Saint-exupéry à Créteil.<br>
               C'est durant cette période que j'ai obtenu des connaissances et des compétences dans des domaines tels que le droit, le marketing et également le management.<br><br>
