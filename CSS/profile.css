@@ -154,11 +154,15 @@ button#open.nav-link
     border-radius: 90px;
     width: 100%;
     border: 10px;
-    font-size: 30px;
+    font-size: 40px;
     color: #181414;
-    font-family: "poppins", sans-serif;
-    font-weight: 700;
+    font-family: "Jersey 10", sans-serif; /* Match the font of the navbar links */
     margin-left: 50px;
+}
+
+button#open.nav-link .text-muted {
+    font-family: "Jersey 10", sans-serif; /* Match the font for muted text */
+    font-size: 40px;
 }
 
 .text-muted{

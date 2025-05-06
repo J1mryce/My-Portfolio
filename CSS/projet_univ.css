@@ -201,8 +201,6 @@ top: 60px;
 
 
 
-
-
 .menu button {
     font-size: 28px;
     padding: 10px 15px;
@@ -249,12 +247,17 @@ font-style: normal;
     border-radius: 90px;
     width: 100%;
     border: 10px;
-    font-size: 30px;
+    font-size: 40px;
+    font-family: "Jersey 10", sans-serif; /* Match the font of the navbar links */
 color: #181414;
-font-family: "poppins", sans-serif;
-font-weight: 700;
 margin-left: 50px;
     }
+
+
+button#open.nav-link .text-muted {
+    font-family: "Jersey 10", sans-serif; /* Match the font for muted text */
+    font-size: 40px;
+}
 
     li.nav-item{
         display: inline-block;
