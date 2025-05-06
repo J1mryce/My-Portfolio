@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/ntr');
-@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
 
 body {
     position: relative; /* Create a positioning context for the overlay */
@@ -27,13 +27,17 @@ h1, h2, p, a, button {
     font-family: 'Poppins', sans-serif; /* Ensure Poppins is applied to headings, paragraphs, links, and buttons */
 }
 
+h1 { 
+    text-align: center; 
+    margin-top: -70px;
+    margin-bottom: 40px; 
+}
+
 .carou {
     width: 100%; /* Ajustez la largeur selon vos besoins */
     margin: 0 auto; /* Centre le carrousel horizontalement */
     position: relative; /* Important pour le positionnement des flèches et du texte */
 }
-
-
 
 #carouselExampleIndicators {
     width: 100%; /* Le carrousel occupe toute la largeur du conteneur .carou */
@@ -55,11 +59,9 @@ h1, h2, p, a, button {
     right: 0; /* Flèche droite à droite du carrousel */
 }
 
-div.color{
-
+div.color {
     background-color: rgba(61, 6, 58, 0.658);
-   background-size: 100vh;
-
+    background-size: 100vh;
 }
 
 * {
@@ -68,7 +70,6 @@ div.color{
     box-sizing: border-box;
 }
 
-
 .content {
     display: none;
 }
@@ -76,13 +77,11 @@ div.color{
     display: block;
 }
 
-.titre{
+.titre {
     color: whitesmoke;
 }
 
 .pop-up-img p {
-    
-
     color: rgb(0, 0, 0);
     font-size: 14px;
     text-align: left;
@@ -94,17 +93,15 @@ div.color{
     height: auto;
 }
 
-.text-muted{
+.text-muted {
     font-size: 30px;
     font-family: "poppins", sans-serif;
-
 }
 
 .pop-up {
     position: relative;
     min-height: 100vh;
 }
-
 
 .pop-up-container {
     background-color: rgba(129, 51, 129, 0.479);
@@ -117,11 +114,10 @@ div.color{
     padding: 10px;
     border-radius: 50px;
     position: relative;
-top: 60px;
+    top: 60px;
 }
 
-.menu{
-
+.menu {
     position: relative;
     top: 27px;
     font-family: "Jersey 10", sans-serif;
@@ -135,19 +131,17 @@ top: 60px;
     overflow: hidden;
     cursor: pointer;
     border-radius: 20px;
-
 }
 
-#carousel1.carousel{
+#carousel1.carousel {
     display: none;
 }
 
-.image img{
+.image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
-    
 }
 
 .image:hover img {
@@ -155,9 +149,7 @@ top: 60px;
     transform: scale(1.1);
 }
 
-
-
-.pop-up-img{
+.pop-up-img {
     position: fixed;
     top: 0;
     left: 0;
@@ -170,30 +162,21 @@ top: 60px;
     align-items: center;
 }
 
-
-
-
-
-.pop-up-img img{
- 
-        border: 5px solid #0056b3;
-        border-radius: 5px;
-        max-width: 548px;
-        object-fit: cover;
-    
-
-
+.pop-up-img img {
+    border: 5px solid #0056b3;
+    border-radius: 5px;
+    max-width: 548px;
+    object-fit: cover;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    
     background-color: rgba(0, 0, 0, 0.541);
     border-radius: 100px;
     background-size: 48%
 }
 
-.cross{
+.cross {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -203,15 +186,9 @@ top: 60px;
     cursor: pointer;
 }
 
-
-.pop-up-img span{
+.pop-up-img span {
     color: blue !important;
 }
-
-
-
-
-
 
 .menu button {
     font-size: 28px;
@@ -224,89 +201,139 @@ top: 60px;
     border-radius: 5px;
 }
 
-.content {
-    display: none;
-    padding: 20px;
-    border-radius: 5px;
-}
-.active {
-    display: block;
-}
-
-section#navigation{
+section#navigation {
     background-color: rgba(0, 0, 0, 0.575);
     backdrop-filter: blur(7px);
     width: 100%;
 }
 
-a.nav-link
-{
-font-size: 35px;
-color: #f1e6e6;
-font-family: "Jersey 10", sans-serif;
-font-weight: 100;
-font-style: normal;
-    }
+a.nav-link {
+    font-size: 35px;
+    color: #f1e6e6;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
 
-    a.nav-link:hover{
+a.nav-link:hover {
+    color: bisque;
+}
 
-        color: bisque;
-    }
-    
-    button#open.nav-link
-{
+button#open.nav-link {
     background-color: #ffffff;
     border-radius: 90px;
     width: 100%;
     border: 10px;
     font-size: 40px;
     font-family: "Jersey 10", sans-serif; /* Match the font of the navbar links */
-color: #181414;
-margin-left: 50px;
-    }
-
+    color: #181414;
+    margin-left: 50px;
+}
 
 button#open.nav-link .text-muted {
     font-family: "Jersey 10", sans-serif; /* Match the font for muted text */
     font-size: 40px;
 }
 
-    li.nav-item{
-        display: inline-block;
-        margin-left: 100px;
-        margin-right: 10px;
-        white-space: nowrap;
-    }
+li.nav-item {
+    display: inline-block;
+    margin-left: 100px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
 
-    img.img-fluid{
-        position:relative;
-        border-radius: 1300px;
-     display:flex;
-  margin-left: 85%;
-  margin-top: 20px;
-    }
+img.img-fluid {
+    position:relative;
+    border-radius: 1300px;
+    display:flex;
+    margin-left: 85%;
+    margin-top: 20px;
+}
 
 .tab-button {
-    background-color: #380766; /* Default background color */
-    border-bottom-color: transparent; /* Default border color */
-    color: #eee; /* Default text color */
+    background-color: #330449; /* Couleur d'arrière-plan plus sombre */
+    border: 1px solid #4dbbee;
+    padding: 18px 15px; /* Réduit le padding horizontal pour laisser plus de place */
+    width: 410px; /* Ajuste la largeur au contenu + l'espace pour l'icône */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease-in-out; /* Ajout de la transition pour l'abaissement */
+    border-radius: 8px 8px 0 0; /* Bords plus arrondis en haut */
+    border-bottom: 2px solid transparent; /* Ligne transparente par défaut en bas */
+    margin-right: 20px; /* Réduit l'espacement entre les onglets */
+    color: #eedaff; /* Couleur de texte plus claire */
+    transform: translateY(5px); /* Abaisse légèrement les onglets par défaut */
+    display: flex; /* Permet d'aligner le texte et l'icône */
+    align-items: center; /* Centre verticalement le texte et l'icône */
+    gap: 30px; /* Espace entre le texte et l'icône */
+    font-family: "Press Start 2P", system-ui; /* Updated font for tab text */
+    font-size: 17px; /* Correct font size */
 }
 
 .tab-button.active {
-    background-color: #9954e9; /* Active tab background color */
+    background-color: #323fb8; /* Active tab background color */
     border-bottom-color: rgb(0, 255, 234); /* Active tab border color */
-    color: #b1ffff; /* Active tab text color */
+    color: #c3b9fc; /* Active tab text color */
 }
 
-.content {
-    display: none; /* Hide all content by default */
+.tab-button:hover {
+    background-color: #1f0a33;
+    border-bottom-color: #777; /* Réaffiche la bordure au survol */
+    transform: translateY(0); /* Remonte légèrement au survol */
 }
 
-.content.active {
-    display: block; /* Show only the active content */
+.tab-button:focus {
+    outline: none; /* Supprime l'outline par défaut au focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 234, 0.25); /* Ajoute un effet de focus stylisé */
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    border-bottom: 2px solid #11bbff; /* Couleur de bordure plus sombre */
+    padding-bottom: 5px; /* Ajoute un peu d'espace sous les onglets */
+    margin-top: 60px;
 }
 
 .SUMMARY {
     background-color: none !important;
+    display: none;
+}
+
+.popup { 
+    display: none; 
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 1, 36, 0.89);
+    justify-content: center; 
+    align-items: center; 
+    z-index: 100;
+}
+
+.popup-content {
+    background: rgb(248, 248, 246);
+    border-radius: 10px;
+    padding-left: 10px;
+    text-align: left; 
+    position: relative;
+    width: 1000px; 
+    height: 500px; 
+    font-size: 40px; 
+}
+
+.close-btn { 
+    color: rgb(224, 27, 27);
+    border-radius: 50px;
+    cursor: pointer; 
+    font-size: 80px; 
+    text-align: right;
+    padding-right: 35px; 
+    padding-bottom: 20px; 
+    margin: auto; 
+}
+
+.carousel-container {
     display: none;
 }
