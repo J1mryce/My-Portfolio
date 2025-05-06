@@ -7,8 +7,12 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(4px);
+    font-family: 'Poppins', sans-serif; /* Assign Poppins font to the entire page */
 }
 
+h1, h2, p, a, button {
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is applied to headings, paragraphs, links, and buttons */
+}
 
 .carou {
     width: 100%; /* Ajustez la largeur selon vos besoins */
@@ -199,8 +203,6 @@ top: 60px;
 
 
 
-
-
 .menu button {
     font-size: 28px;
     padding: 10px 15px;
@@ -273,3 +275,23 @@ button#open.nav-link .text-muted {
   margin-left: 85%;
   margin-top: 20px;
     }
+
+.tab-button {
+    background-color: #380766; /* Default background color */
+    border-bottom-color: transparent; /* Default border color */
+    color: #eee; /* Default text color */
+}
+
+.tab-button.active {
+    background-color: #9954e9; /* Active tab background color */
+    border-bottom-color: rgb(0, 255, 234); /* Active tab border color */
+    color: #b1ffff; /* Active tab text color */
+}
+
+.content {
+    display: none; /* Hide all content by default */
+}
+
+.content.active {
+    display: block; /* Show only the active content */
+}

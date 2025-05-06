@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/ntr');
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 body {
     background-image: url("../IMG/bencin-studios-pixelartbackground.gif");
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    
-    
+    font-family: 'Poppins', sans-serif; /* Assign Poppins font to the entire page */
 }
 
 div.unknow{
@@ -113,3 +113,7 @@ button#open.nav-link .text-muted {
     .infos{
         width: 50%;
     }
+
+h1, p, a, button {
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is applied to headings, paragraphs, links, and buttons */
+}
