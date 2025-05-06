@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
 body {
-    background-image: url("../IMG/bencin-studios-pixelartbackground.gif");
+    background-image: url("../IMG/NEBULA.gif");
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -11,16 +11,13 @@ body {
     font-family: 'Poppins', sans-serif; /* Assign Poppins font to the entire page */
 }
 
-div.unknow{
-
-    background-color: rgba(84, 38, 112, 0.726);
+div.unknow {
+    background: linear-gradient(135deg, rgba(14, 1, 37, 0.664) 0%, rgba(29, 1, 48, 0.849) 100%);
     width: 100%;
-    height:3000px;
-    
-    backdrop-filter: blur(3px);
-    
-    
+    height: 400vh;
+    backdrop-filter: blur(2.3px);
 }
+
 section#navigation{
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(7px);

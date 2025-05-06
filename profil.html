@@ -155,6 +155,18 @@
       </div>
   </div>
 
+  <!-- Add the contact popup markup -->
+  <div class="popup" id="contact" style="display:none;">
+      <div class="popup-content">
+          <div class="close-btn" id="closePopup"><span>&times;</span></div>
+          <h1>Mes Contacts</h1>
+          <br>
+          <p>MAIL: jimryce.jouenne@outlook.com</p>
+          <br>
+          LINKDIN:<a href="https://www.linkedin.com/in/jimryce">www.linkedin.com/in/jimryce</a>
+      </div>
+  </div>
+
   <script>
       function openPopup() {
           document.getElementById('cvPopup').style.display = 'flex';
@@ -163,6 +175,23 @@
       function closePopup() {
           document.getElementById('cvPopup').style.display = 'none';
       }
+
+      // Contact popup logic
+      const openButton = document.getElementById('open');
+      const contact = document.getElementById('contact');
+      const closePopupButton = document.getElementById('closePopup');
+      openButton.addEventListener('click', function() { 
+          contact.style.display = 'flex';
+      });
+      closePopupButton.addEventListener('click', function() { 
+          contact.style.display = 'none';
+      });
+      window.addEventListener('click', function(event) { 
+          if (event.target === contact) { 
+              contact.style.display = 'none';
+          }
+      });
   </script>
+
 </body>
 </html>
