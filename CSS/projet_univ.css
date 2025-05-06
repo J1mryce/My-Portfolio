@@ -7,7 +7,7 @@ body {
     background-image: url('../IMG/arcade-room.png');
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: blur(5px); /* Ensure blur is applied */
+    backdrop-filter: blur(3px); /* Ensure blur is applied */
     font-family: 'Poppins', sans-serif; /* Assign Poppins font to the entire page */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
@@ -19,7 +19,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    background-color: rgba(38, 2, 49, 0.884); /* Semi-transparent black overlay */
     z-index: -1; /* Ensure the overlay is below the content */
 }
 
@@ -153,9 +153,6 @@ top: 60px;
 .image:hover img {
     border-radius: 50px;
     transform: scale(1.1);
-   
-    
-
 }
 
 
@@ -307,4 +304,9 @@ button#open.nav-link .text-muted {
 
 .content.active {
     display: block; /* Show only the active content */
+}
+
+.SUMMARY {
+    background-color: none !important;
+    display: none;
 }
