@@ -3,82 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Arcade Screen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Document</title>
   <style>
-    body {
-      background: #0d001f;
-      margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
+
+    #loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
+      background-color: rgba(11, 0, 15, 0.959); /* Semi-transparent overlay */
+      z-index: 1; /* Lower z-index to ensure loading content is visible */
+      pointer-events: none; /* Allow interactions with loading content */
     }
-
-    .arcade-wrapper {
-      position: relative;
-      width: 800px;
-      max-width: 90vw;
-    }
-
-    .arcade-frame {
-      width: 100%;
-      display: block;
-      position: relative;
-      z-index: 2;
-    }
-
-    .arcade-screen-content {
-      position: absolute;
-      top: 22%;
-      left: 12%;
-      width: 76%;
-      height: 52%;
-      background: #000;
-      z-index: 1;
-      padding: 20px;
-      overflow: auto;
-      box-sizing: border-box;
-      border: 2px solid #00ffcc;
-      animation: flicker 1.5s infinite;
-    }
-
-    .arcade-screen-content::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: repeating-linear-gradient(
-        rgba(255, 255, 255, 0.03),
-        rgba(255, 255, 255, 0.03) 2px,
-        transparent 2px,
-        transparent 4px
-      );
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.97; }
-    }
+   /* HTML: <div class="loader"></div> */
+   #loading {
+  width: fit-content;
+  font-size: 28px; /* Further increased font size */
+  font-family: monospace;
+  line-height: 1.8; /* Adjusted line height */
+  font-weight: bold;
+  background: 
+    linear-gradient(#e1d5f0 0 0) left ,
+    linear-gradient(#e1d5f0 0 0) right;
+  background-repeat: no-repeat; 
+  border-right: 10px solid #0000; /* Further increased border size */
+  border-left: 10px solid #0000; /* Further increased border size */
+  background-origin: border-box;
+  position: relative;
+  animation: l9-0 2s infinite;
+  display: flex; /* Center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Higher z-index to appear above the overlay */
+font-family: "Press Start 2P", system-ui;
+color: #e1d5f0;
+}
+#loading::before {
+  content:"Chargement...";
+}
+#loading::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 40px; /* Further increased width */
+  height: 100px; /* Further increased height */
+  background: 
+   linear-gradient(90deg,#9ce0ca 8px,#0000 0 calc(100% - 8px),#9ce0ca 0) bottom            /40px 30px,
+   linear-gradient(90deg,rgb(77, 226, 57)  8px,#eb050500 0 calc(100% - 8px),rgb(77, 226, 57)  0) bottom 20px left 0/40px 10px,
+   linear-gradient(#9ce0ca 0 0) bottom 7px left 0  /40px 12px,
+   linear-gradient(#9ce0ca 0 0) bottom 0   left 50%/12px  24px;
+ background-repeat: no-repeat;
+ animation: l9-1 2s infinite;
+}
+@keyframes l9-0{
+  0%,25%    {background-size: 50% 100%}
+  25.1%,75% {background-size: 0 0,50% 100%}
+  75.1%,100%{background-size: 0 0,0 0}
+}
+@keyframes l9-1{
+  25%   { background-position:bottom, bottom 54px left 0,bottom 3px left 0,bottom 0 left 50%;left:0}
+  25.1% { background-position:bottom, bottom 10px left 0,bottom 3px left 0,bottom 0 left 50%;left:0}
+  50%   { background-position:bottom, bottom 10px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+  75%   { background-position:bottom, bottom 54px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+  75.1% { background-position:bottom, bottom 10px left 0,bottom 3px left 0,bottom 0 left 50%;left:calc(100% - 22px)}
+}
   </style>
 </head>
 <body>
-  <div class="arcade-wrapper">
-    <!-- Replace this src with your arcade frame PNG with transparent screen -->
-    <img src="IMG/test-frame.jpg" alt="Arcade Frame" class="arcade-frame">
-    <div class="arcade-screen-content">
-      <h2>Mes Travaux en 3D</h2>
-      <ul>
-        <li>Modèle 1: Table et chaises</li>
-        <li>Modèle 2: Coffre au trésor</li>
-        <li>Modèle 3: Accessoire pirate</li>
-        <li>Modèle 4: Salle de bain stylisée</li>
-      </ul>
-    </div>
-  </div>
+  <div id="loading-overlay"></div>
+  <div id="loading"></div>
 </body>
 </html>

@@ -9,39 +9,92 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
     <style>
-        /* Simple loading screen */
-        #loading {
+        /* Loading Screen Styles - Copied from perso_projects.html */
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
+
+        #loading-overlay {
             position: fixed;
-            z-index: 9999;
-            background: #000;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            top: 0; left: 0;
+            background-color: rgba(11, 0, 15, 0.959);
+            z-index: 9998; /* High z-index, below loading content */
+            pointer-events: none;
+        }
+
+        #loading {
+            width: fit-content;
+            font-size: 28px;
+            font-family: "Press Start 2P", system-ui;
+            line-height: 1.8;
+            font-weight: bold;
+            background: 
+                linear-gradient(#e1d5f0 0 0) left,
+                linear-gradient(#e1d5f0 0 0) right;
+            background-repeat: no-repeat; 
+            border-right: 10px solid #0000;
+            border-left: 10px solid #0000;
+            background-origin: border-box;
+            position: fixed;
+            animation: l9-0 2s infinite;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Higher z-index to appear above the overlay */
+            color: #e1d5f0;
         }
 
-        /* Add animation to the loading text */
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
+        #loading::before {
+            content: "Chargement...";
         }
 
         #loading::after {
-            content: "...";
-            animation: blinker 1s linear infinite;
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 40px; /* Increased width */
+            height: 100px; /* Increased height */
+            background: 
+                linear-gradient(90deg, #9ce0ca 8px, #0000 0 calc(100% - 8px), #9ce0ca 0) bottom / 40px 30px,
+                linear-gradient(90deg, rgb(77, 226, 57) 8px, #eb050500 0 calc(100% - 8px), rgb(77, 226, 57) 0) bottom 20px left 0 / 40px 10px,
+                linear-gradient(#9ce0ca 0 0) bottom 7px left 0 / 40px 12px,
+                linear-gradient(#9ce0ca 0 0) bottom 0 left 50% / 12px 24px;
+            background-repeat: no-repeat;
+            animation: l9-1 2s infinite;
+        }
+
+        @keyframes l9-0 {
+            0%, 25% { background-size: 50% 100%; }
+            25.1%, 75% { background-size: 0 0, 50% 100%; }
+            75.1%, 100% { background-size: 0 0, 0 0; }
+        }
+
+        @keyframes l9-1 {
+            25% { background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0; }
+            25.1% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0; }
+            50% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
+            75% { background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
+            75.1% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
+        }
+
+
+        .mon-parcours-img, .game-design {
+            border: 5px solid #e1d5f0; /* Add a border */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            padding: 5px; /* Optional: Add padding inside the border */
         }
     </style>
 </head>
 
 <div class="unknow">
 <body>
-    <div id="loading">Chargement...</div>
+    <div id="loading-overlay"></div>
+    <div id="loading"></div>
     <header>
         <section id="navigation">
         <div class="true-navbar" id="menu">
@@ -214,16 +267,17 @@
     } });
 
     window.addEventListener('load', function() {
-        // Only hide if not on intro.html
-        if (!window.location.pathname.endsWith('intro.html')) {
-            var loading = document.getElementById('loading');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const loading = document.getElementById('loading');
+        setTimeout(() => {
+            if (loadingOverlay) loadingOverlay.style.display = 'none';
             if (loading) loading.style.display = 'none';
-        }
+        }, 2000); // Delay of 2 seconds
     });
 
     // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
     if (window.location.pathname.endsWith('intro.html')) {
-        var loading = document.getElementById('loading');
+        const loading = document.getElementById('loading');
         if (loading) loading.style.display = 'none';
     }
 </script>

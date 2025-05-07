@@ -11,32 +11,77 @@
     <script src="JVScript/projetperso.js"></script>
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
 
-#loading {
+        #loading-overlay {
             position: fixed;
-            z-index: 9999;
-            background: #000000;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            top: 0; left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem; /* Increased font size */
-            color: #ffffff;
+            background-color: rgba(11, 0, 15, 0.959); /* Semi-transparent overlay */
+            z-index: 1; /* Lower z-index to ensure loading content is visible */
+            pointer-events: none; /* Allow interactions with loading content */
         }
 
-        /* Add animation to the loading text */
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
+        #loading {
+            width: fit-content;
+            font-size: 28px; /* Increased font size */
+            font-family: "Press Start 2P", system-ui;
+            line-height: 1.8; /* Adjusted line height */
+            font-weight: bold;
+            background: 
+                linear-gradient(#e1d5f0 0 0) left,
+                linear-gradient(#e1d5f0 0 0) right;
+            background-repeat: no-repeat; 
+            border-right: 10px solid #0000; /* Increased border size */
+            border-left: 10px solid #0000; /* Increased border size */
+            background-origin: border-box;
+            position: relative;
+            animation: l9-0 2s infinite;
+            display: flex; /* Center content */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* Higher z-index to appear above the overlay */
+            color: #e1d5f0;
+        }
+
+        #loading::before {
+            content: "Chargement...";
         }
 
         #loading::after {
-            content: "...";
-            animation: blinker 1s linear infinite;
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 40px; /* Increased width */
+            height: 100px; /* Increased height */
+            background: 
+                linear-gradient(90deg, #9ce0ca 8px, #0000 0 calc(100% - 8px), #9ce0ca 0) bottom / 40px 30px,
+                linear-gradient(90deg, rgb(77, 226, 57) 8px, #eb050500 0 calc(100% - 8px), rgb(77, 226, 57) 0) bottom 20px left 0 / 40px 10px,
+                linear-gradient(#9ce0ca 0 0) bottom 7px left 0 / 40px 12px,
+                linear-gradient(#9ce0ca 0 0) bottom 0 left 50% / 12px 24px;
+            background-repeat: no-repeat;
+            animation: l9-1 2s infinite;
+        }
+
+        @keyframes l9-0 {
+            0%, 25% { background-size: 50% 100%; }
+            25.1%, 75% { background-size: 0 0, 50% 100%; }
+            75.1%, 100% { background-size: 0 0, 0 0; }
+        }
+
+        @keyframes l9-1 {
+            25% { background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0; }
+            25.1% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0; }
+            50% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
+            75% { background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
+            75.1% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
         }
 
         .popup {
@@ -114,168 +159,167 @@
         }
     </style>
 </head>
-
-<div class="unknow">
-    <body>
-        <div id="loading">Chargement...</div>
-        <section id="navigation">
-            <div class="true-navbar" id="menu">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="logo-portfolio">
-                            <a href="index.html">
-                                <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
-                            </a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="profil.html">MON PROFIL</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
-                                </li>
-                                <li class="nav-item">
-                                    <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
+<body>
+    <div id="loading-overlay"></div>
+    <div id="loading"></div>
+    <section id="navigation">
+        <div class="true-navbar" id="menu">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="logo-portfolio">
+                        <a href="index.html">
+                            <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
+                        </a>
                     </div>
-                </nav>
-            </section>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="profil.html">MON PROFIL</a>
+                            </li>
 
-        <div class="popup" id="contact">
-            <div class="popup-content">
-                <div class="close-btn" id="closePopup"><span>&times;</span></div>
-                <h1>Mes Contacts</h1>
-                <br>
-                <p>MAIL: jimryce.jouenne@outlook.com</p>
-                <br>
-                LINKDIN:<a href="www.linkedin.com/in/jimryce">www.linkedin.com/in/jimryce</a>
-            </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+    <div class="popup" id="contact">
+        <div class="popup-content">
+            <div class="close-btn" id="closePopup"><span>&times;</span></div>
+            <h1>Mes Contacts</h1>
+            <br>
+            <p>MAIL: jimryce.jouenne@outlook.com</p>
+            <br>
+            LINKDIN:<a href="www.linkedin.com/in/jimryce">www.linkedin.com/in/jimryce</a>
         </div>
+    </div>
 
-        <div class="image-container">
-            <img src="IMG/Preview/final - Copie.png" id="image1" data-src="IMG/Preview/final - Copie.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
-            <p class="infos">Pour mon projet de portfolio, j'ai voulu mettre en avant un projet réalisé hors du cadre universitaire afin de montrer ma créativité et mon expérience dans ce domaine.<br><br>
+    <div class="image-container">
+        <img src="IMG/Preview/final - Copie.png" id="image1" data-src="IMG/Preview/final - Copie.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <p class="infos">Pour mon projet de portfolio, j'ai voulu mettre en avant un projet réalisé hors du cadre universitaire afin de montrer ma créativité et mon expérience dans ce domaine.<br><br>
 
-            En effectuant des recherches sur des travaux liés au CONCEPT ART et au DIGITAL ART, je suis tombé sur une vidéo présentant une technique souvent utilisée pour réaliser des concepts art ou des peintures numériques, appelée le PHOTOBASHING.<br><br>
-            
-            Cette technique consiste à utiliser des éléments, tels que des photos par exemple, et à partir de ces derniers, à les disposer d'une manière spécifique pour créer une mise en scène ou même des personnages, tout en repassant dessus avec un pinceau pour créer une illustration plus détaillée et artistique.<br><br>
-            
-            J'ai donc tenté de réaliser une illustration sur PHOTOSHOP qui s'inspirerait de cette méthode, à l'aide de tutoriels et de guides qui montrent la manière dont il faut procéder pour réaliser ce genre de travaux.<br><br>
-            
-            Pour cette première illustration utilisant la méthode du PHOTOBASHING, j'ai choisi de m'inspirer de KINGDOM HEARTS IV, un jeu faisant partie d'une saga à laquelle j'ai beaucoup joué et dont j'attends la sortie avec impatience.<br><br>
-            
-            Pour parvenir à réaliser cette affiche, j'ai utilisé de nombreuses photos prises dans les rues de TOKYO. Je les ai ensuite assemblées et retouchées pour que l'environnement soit le plus visuellement attrayant possible.<br><br>
-            
-            J'ai par la suite ajouté un filtre de découpe sur l'ensemble de l'illustration pour obtenir un rendu homogène.</p>
-        </div>
+        En effectuant des recherches sur des travaux liés au CONCEPT ART et au DIGITAL ART, je suis tombé sur une vidéo présentant une technique souvent utilisée pour réaliser des concepts art ou des peintures numériques, appelée le PHOTOBASHING.<br><br>
+        
+        Cette technique consiste à utiliser des éléments, tels que des photos par exemple, et à partir de ces derniers, à les disposer d'une manière spécifique pour créer une mise en scène ou même des personnages, tout en repassant dessus avec un pinceau pour créer une illustration plus détaillée et artistique.<br><br>
+        
+        J'ai donc tenté de réaliser une illustration sur PHOTOSHOP qui s'inspirerait de cette méthode, à l'aide de tutoriels et de guides qui montrent la manière dont il faut procéder pour réaliser ce genre de travaux.<br><br>
+        
+        Pour cette première illustration utilisant la méthode du PHOTOBASHING, j'ai choisi de m'inspirer de KINGDOM HEARTS IV, un jeu faisant partie d'une saga à laquelle j'ai beaucoup joué et dont j'attends la sortie avec impatience.<br><br>
+        
+        Pour parvenir à réaliser cette affiche, j'ai utilisé de nombreuses photos prises dans les rues de TOKYO. Je les ai ensuite assemblées et retouchées pour que l'environnement soit le plus visuellement attrayant possible.<br><br>
+        
+        J'ai par la suite ajouté un filtre de découpe sur l'ensemble de l'illustration pour obtenir un rendu homogène.</p>
+    </div>
 <hr>
-        <div class="image-container">
-            <img src="IMG/Preview/V.FINALE.png" id="image2" data-src="IMG/Preview/V.FINALE.png" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso">
-            <p class="infos">Pendant ma deuxième année en BUT MMI, j’ai eu l’occasion d’améliorer mes compétences en Design Graphique, que j’avais déjà acquises lors de ma toute première année au sein de la formation, grâce notamment à un projet de charte graphique.
+    <div class="image-container">
+        <img src="IMG/Preview/V.FINALE.png" id="image2" data-src="IMG/Preview/V.FINALE.png" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso">
+        <p class="infos">Pendant ma deuxième année en BUT MMI, j’ai eu l’occasion d’améliorer mes compétences en Design Graphique, que j’avais déjà acquises lors de ma toute première année au sein de la formation, grâce notamment à un projet de charte graphique.
 
-                Étant donné que je suis actuellement dans le parcours Développement Web, les cours sont plus consacrés à la création d'applications et de sites web qu'à des projets en lien avec le domaine du design graphique.
-                <br><br>
-                Pour mettre en avant mes compétences dans le domaine de la conception graphique et autres éléments visuels, j’ai donc décidé de créer un logo, ainsi qu’une charte graphique à l’aide des logiciels de la suite Adobe : Illustrator, Photoshop et InDesign.
-                <br>
-                Le logo est celui d’une marque fictive de produits de luxe.
-                </p>
-        </div>
-        <hr>
-        <div class="image-container">
-            <img src="IMG/logov2.png" id="image3" data-src="IMG/Preview/Capture d'écran 2025-03-18 173342.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
-            <p class="infos">Même avant de rejoindre cette formation, j'ai toujours été plus intéressé par la <br>
-                partie Création Numérique/Design Graphique qu'elle propose. <br>
-                Cela ne m'a cependant pas empêché de développer des compétences dans la partie Développement Web de la formation <br>
-                et afin de montrer celles que je possède, j'ai pris la décision de réaliser mon portfolio <br>
-                entièrement en HTML et CSS, qui sont les principaux langages utilisés pour créer des sites web. <br>
-                J'ai également utilisé JavaScript pour toute la partie qui concerne les interactions du site, telles <br>
-                que les images cliquables et les boutons. <br>
-                <br>
-                N'ayant pas terminé ma deuxième année au sein de la formation, il ne s'agit que d'une version semi-complète du portfolio. Des changements seront apportés à ce dernier dans les semaines qui suivent.
-        </div>
-        <hr>
-        <div class="image-container">
-            <img src="IMG/Preview/Poster.jpg" id="image4" data-src="IMG/Preview/Poster.jpg" class="rounded d-block image-popup-trigger" alt="..." name="perso">
-            <p class="infos">Pour ce projet, j'ai simplement voulu créer une affiche en lien avec le métier de Game Designer.<br>
-                C'est au moment où j'ai trouvé l'inspiration que<br>
-                je me suis dit que ce serait intéressant de faire ce poster.<br>
-                Je n'ai pas eu d'objectif en tête lorsque j'ai réalisé cette affiche.
+            Étant donné que je suis actuellement dans le parcours Développement Web, les cours sont plus consacrés à la création d'applications et de sites web qu'à des projets en lien avec le domaine du design graphique.
+            <br><br>
+            Pour mettre en avant mes compétences dans le domaine de la conception graphique et autres éléments visuels, j’ai donc décidé de créer un logo, ainsi qu’une charte graphique à l’aide des logiciels de la suite Adobe : Illustrator, Photoshop et InDesign.
+            <br>
+            Le logo est celui d’une marque fictive de produits de luxe.
             </p>
-          </div>
+    </div>
+    <hr>
+    <div class="image-container">
+        <img src="IMG/logov2.png" id="image3" data-src="IMG/Preview/Capture d'écran 2025-03-18 173342.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <p class="infos">Même avant de rejoindre cette formation, j'ai toujours été plus intéressé par la <br>
+            partie Création Numérique/Design Graphique qu'elle propose. <br>
+            Cela ne m'a cependant pas empêché de développer des compétences dans la partie Développement Web de la formation <br>
+            et afin de montrer celles que je possède, j'ai pris la décision de réaliser mon portfolio <br>
+            entièrement en HTML et CSS, qui sont les principaux langages utilisés pour créer des sites web. <br>
+            J'ai également utilisé JavaScript pour toute la partie qui concerne les interactions du site, telles <br>
+            que les images cliquables et les boutons. <br>
+            <br>
+            N'ayant pas terminé ma deuxième année au sein de la formation, il ne s'agit que d'une version semi-complète du portfolio. Des changements seront apportés à ce dernier dans les semaines qui suivent.
+    </div>
+    <hr>
+    <div class="image-container">
+        <img src="IMG/Preview/Poster.jpg" id="image4" data-src="IMG/Preview/Poster.jpg" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <p class="infos">Pour ce projet, j'ai simplement voulu créer une affiche en lien avec le métier de Game Designer.<br>
+            C'est au moment où j'ai trouvé l'inspiration que<br>
+            je me suis dit que ce serait intéressant de faire ce poster.<br>
+            Je n'ai pas eu d'objectif en tête lorsque j'ai réalisé cette affiche.
+        </p>
+      </div>
 
-          <div class="image-container">
-            <img src="IMG/Preview/Saginya.jpeg" id="image5" data-src="IMG/Preview/Saginya.jpeg" class="rounded d-block image-popup-trigger" alt="..." name="perso">
-            <p class="infos">
-                Voulant devenir un GAME DESIGNER et étant passioné par la modélisation 3D, j'ai moi meme créer mon propre personnage en 3d
-            </p>
-          </div>
-  
-          <div id="imagePopup" class="carousel slide">
-              <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0001.jpg" class="d-block w-100" alt="Image 1">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0004.jpg" class="d-block w-100" alt="Image 2">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0006.jpg" class="d-block w-100" alt="Image 3">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0018.jpg" class="d-block w-100" alt="Image 4">
-                </div>
-                <div class="carousel-item">
-                    <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0013.jpg" class="d-block w-100" alt="Image 5">
-                </div>
+      <div class="image-container">
+        <img src="IMG/Preview/Saginya.jpeg" id="image5" data-src="IMG/Preview/Saginya.jpeg" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <p class="infos">
+            Voulant devenir un GAME DESIGNER et étant passioné par la modélisation 3D, j'ai moi meme créer mon propre personnage en 3d
+        </p>
+      </div>
+
+      <div id="imagePopup" class="carousel slide">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0001.jpg" class="d-block w-100" alt="Image 1">
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#imagePopup" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#imagePopup" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
+              <div class="carousel-item">
+                  <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0004.jpg" class="d-block w-100" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                  <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0006.jpg" class="d-block w-100" alt="Image 3">
+              </div>
+              <div class="carousel-item">
+                <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0018.jpg" class="d-block w-100" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+                <img src="IMG/Preview/OUROBOROS_pages-to-jpg-0013.jpg" class="d-block w-100" alt="Image 5">
+            </div>
           </div>
-          <script>
-            const openButton = document.getElementById('open');
-            const contact = document.getElementById('contact');
-            const closePopupButton = document.getElementById('closePopup');
-            openButton.addEventListener('click', function() { contact.style.display = 'flex';
-            });
-            closePopupButton.addEventListener('click', function() { contact.style.display = 'none';
-            });
-            window.addEventListener('click', function(event) { if (event.target === contact) { contact.style.display = 'none';
-            } });
-        
-            window.addEventListener('load', function() {
-                // Only hide if not on intro.html
-                if (!window.location.pathname.endsWith('intro.html')) {
-                    var loading = document.getElementById('loading');
-                    if (loading) loading.style.display = 'none';
-                }
-            });
-        
-            // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
-            if (window.location.pathname.endsWith('intro.html')) {
-                var loading = document.getElementById('loading');
+          <button class="carousel-control-prev" type="button" data-bs-target="#imagePopup" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#imagePopup" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      <script>
+        const openButton = document.getElementById('open');
+        const contact = document.getElementById('contact');
+        const closePopupButton = document.getElementById('closePopup');
+        openButton.addEventListener('click', function() { contact.style.display = 'flex';
+        });
+        closePopupButton.addEventListener('click', function() { contact.style.display = 'none';
+        });
+        window.addEventListener('click', function(event) { if (event.target === contact) { contact.style.display = 'none';
+        } });
+    
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                if (loadingOverlay) loadingOverlay.style.display = 'none';
                 if (loading) loading.style.display = 'none';
-            }
-        </script>
-        
-      </body>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </div>
-  </html>
+            }, 2000); // Delay of 2 seconds
+        });
+    
+        // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
+        if (window.location.pathname.endsWith('intro.html')) {
+            var loading = document.getElementById('loading');
+            if (loading) loading.style.display = 'none';
+        }
+    </script>
+    
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
