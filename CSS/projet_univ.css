@@ -6,6 +6,7 @@ body {
     position: relative; /* Create a positioning context for the overlay */
     background-image: url('../IMG/arcade-room.png');
     background-size: cover;
+    background-repeat: no-repeat;
     backdrop-filter: blur(3px); /* Ensure blur is applied */
     font-family: 'Poppins', sans-serif; /* Assign Poppins font to the entire page */
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -381,4 +382,61 @@ img.img-fluid {
         transparent 1px,
         transparent 3px
     ); /* Add a grid-like pattern for the TV effect */
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it appears above all other elements */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+#loading-screen.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+#loading-screen .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-top: 8px solid #ffffff; /* White border for animation */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+footer {
+    background-color: rgba(38, 2, 49, 0.95); /* Match the website's color scheme */
+    color: #f1e6e6; /* Light text color */
+    text-align: center;
+    padding: 210px 0; /* Increase vertical padding for a larger footer */
+    font-size: 28px; /* Increase font size for better readability */
+    font-family: 'Poppins', sans-serif;
+    position: fixed; /* Fix the footer to the bottom of the viewport */
+    top: 193%; /* Align it to the bottom */
+    left: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 103; /* Ensure it appears above other elements */
+}
+
+footer .footer-content p {
+    margin: 5px 0;
 }
