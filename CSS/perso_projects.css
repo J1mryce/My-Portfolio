@@ -49,7 +49,7 @@ font-style: normal;
     .rounded.d-block{
         width: 20%;
         margin-top: 140x;
-        background-color: rgba(3, 44, 99, 0.185);
+        background-color: rgb(147, 131, 190);
         backdrop-filter: grayscale(88%);
         margin-left: 56px;
         margin-bottom: 28px;
@@ -113,4 +113,10 @@ button#open.nav-link .text-muted {
 
 h1, p, a, button {
     font-family: 'Poppins', sans-serif; /* Ensure Poppins is applied to headings, paragraphs, links, and buttons */
+}
+
+section#navigation {
+    margin-bottom: 119px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(7px);
 }

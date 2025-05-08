@@ -348,7 +348,7 @@ img.img-fluid {
     display: block;
     width: 150%;
     height: 190%;
-    transform: translate(-13%, -36%);
+    transform: translate(-13%, -34%);
     clip-path: inset(28% 4% 10% 6%);
     pointer-events: none;
     overflow: hidden;
@@ -367,7 +367,7 @@ img.img-fluid {
     transform: translate(-50%, -50%); /* Adjust for perfect centering */
     width: 88%; /* Adjust width as needed */
     height: 100%; /* Adjust height as needed */
-    background: rgba(37, 29, 150, 0.295); /* Less opaque black background */
+    background: rgba(37, 29, 150, 0.658); /* Less opaque black background */
     border: 5px solid rgba(255, 255, 255, 0.3); /* Add a border with reduced opacity */
     border-radius: 20px; /* Match the arcade machine's border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
@@ -386,11 +386,11 @@ footer {
     background-color: rgba(38, 2, 49, 0.95); /* Match the website's color scheme */
     color: #f1e6e6; /* Light text color */
     text-align: center;
-    padding: 210px 0; /* Increase vertical padding for a larger footer */
+    padding: 80px; /* Increase vertical padding for a larger footer */
     font-size: 28px; /* Increase font size for better readability */
     font-family: 'Poppins', sans-serif;
     position: fixed; /* Fix the footer to the bottom of the viewport */
-    top: 110%; /* Align it to the bottom */
+    top: 114%; /* Align it to the bottom */
     left: 0;
     width: 100%; /* Ensure it spans the full width */
     z-index: 103; /* Ensure it appears above other elements */
