@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="profil.html">MON PROFIL</a>
+                            <a class="nav-link active" href="profil.html">MON PROFIL</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
@@ -44,10 +44,10 @@
                             <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small>
+                            <button class="nav-link" id="open" aria-disabled="true">
+                                Contactez<small class="text-muted" style=" color: #ac88ee !important;"> moi</small>
                             </button>
-
-                            </li>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -167,18 +167,19 @@
       </div>
   </div>
 
-  <!-- Add the contact popup markup -->
+  <!-- Contact popup markup -->
   <div class="popup" id="contact" style="display:none;">
       <div class="popup-content">
           <div class="close-btn" id="closePopup"><span>&times;</span></div>
           <h1>Mes Contacts</h1>
-          <br>
-          <p>MAIL: jimryce.jouenne@outlook.com</p>
-          <br>
-          LINKDIN:<a href="https://www.linkedin.com/in/jimryce">www.linkedin.com/in/jimryce</a>
+          <p><strong>EMAIL:</strong> jimryce.jouenne@outlook.com</p>
+          <p><strong>LINKEDIN:</strong> <a href="https://www.linkedin.com/in/jimryce" target="_blank">www.linkedin.com/in/jimryce</a></p>
       </div>
   </div>
 
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
   <script>
     const openButton = document.getElementById('open');
     const contact = document.getElementById('contact');
@@ -197,12 +198,35 @@
             if (loadingOverlay) loadingOverlay.style.display = 'none';
             if (loading) loading.style.display = 'none';
         }, 2000); // Delay of 2 seconds
+        
+        // Set active class based on current page
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            }
+        });
+        
+       
     });
 
     // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
     if (window.location.pathname.endsWith('intro.html')) {
         const loading = document.getElementById('loading');
         if (loading) loading.style.display = 'none';
+    }
+    
+    // Function to open CV popup
+    function openPopup() {
+        document.getElementById('cvPopup').style.display = 'flex';
+    }
+    
+    // Function to close CV popup
+    function closePopup() {
+        document.getElementById('cvPopup').style.display = 'none';
     }
 </script>
 

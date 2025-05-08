@@ -84,54 +84,15 @@
             75.1% { background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px); }
         }
 
-        .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(30, 1, 36, 0.89);
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        .popup-content {
-          bottom: 900px;
-            background: rgb(248, 248, 246);
-            border-radius: 10px;
-            padding-left: 10px;
-            text-align: left;
-            position: relative;
-            width: 1000px;
-            height: 500px;
-            font-size: 40px;
-        }
-
         .infos{
             color:whitesmoke;
             font-size: 19px;
             width: 80%;
             margin-top: 25px;
-
-        }
-
-        .close-btn {
-            border: 13px;
-            color: rgb(224, 27, 27);
-            padding-right: 35px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 80px;
-            text-align: right;
-            padding-bottom: 20px;
-            margin: auto;
         }
 
         h1 {
             text-align: center;
-            margin-top: -70px;
             margin-bottom: 40px;
         }
 
@@ -162,49 +123,50 @@
 <body>
     <div id="loading-overlay"></div>
     <div id="loading"></div>
-    <section id="navigation">
+    <header>
+        <section id="navigation">
         <div class="true-navbar" id="menu">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <div class="logo-portfolio">
-                        <a href="index.html">
-                            <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
-                        </a>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="profil.html">MON PROFIL</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="logo-portfolio">
+                    <a href="index.html">
+                        <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
+                    </a>
                 </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">MON PROFIL</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="open" aria-disabled="true">
+                                Contactez<small class="text-muted"> moi</small>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
             </nav>
         </section>
+    </header>
 
+    <!-- Contact popup markup -->
     <div class="popup" id="contact">
         <div class="popup-content">
             <div class="close-btn" id="closePopup"><span>&times;</span></div>
             <h1>Mes Contacts</h1>
-            <br>
-            <p>MAIL: jimryce.jouenne@outlook.com</p>
-            <br>
-            LINKDIN:<a href="www.linkedin.com/in/jimryce">www.linkedin.com/in/jimryce</a>
+            <p><strong>EMAIL:</strong> jimryce.jouenne@outlook.com</p>
+            <p><strong>LINKEDIN:</strong> <a href="https://www.linkedin.com/in/jimryce" target="_blank">www.linkedin.com/in/jimryce</a></p>
         </div>
     </div>
 
@@ -295,15 +257,41 @@
           </button>
       </div>
       <script>
-        const openButton = document.getElementById('open');
-        const contact = document.getElementById('contact');
-        const closePopupButton = document.getElementById('closePopup');
-        openButton.addEventListener('click', function() { contact.style.display = 'flex';
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            const openButton = document.getElementById('open');
+            const contact = document.getElementById('contact');
+            const closePopupButton = document.getElementById('closePopup');
+            
+            console.log('Open button:', openButton);
+            console.log('Contact popup:', contact);
+            console.log('Close button:', closePopupButton);
+            
+            if (openButton && contact && closePopupButton) {
+                // Initially hide the popup
+                contact.style.display = 'none';
+                
+                openButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Contact button clicked');
+                    contact.style.display = 'flex';
+                });
+                
+                closePopupButton.addEventListener('click', function() {
+                    console.log('Close button clicked');
+                    contact.style.display = 'none';
+                });
+                
+                window.addEventListener('click', function(event) {
+                    if (event.target === contact) {
+                        console.log('Clicked outside popup');
+                        contact.style.display = 'none';
+                    }
+                });
+            } else {
+                console.error('One or more elements for contact popup not found');
+            }
         });
-        closePopupButton.addEventListener('click', function() { contact.style.display = 'none';
-        });
-        window.addEventListener('click', function(event) { if (event.target === contact) { contact.style.display = 'none';
-        } });
     
         window.addEventListener('load', function() {
             const loadingOverlay = document.getElementById('loading-overlay');
@@ -312,6 +300,18 @@
                 if (loadingOverlay) loadingOverlay.style.display = 'none';
                 if (loading) loading.style.display = 'none';
             }, 2000); // Delay of 2 seconds
+            
+            // Set active class based on current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+         
         });
     
         // Optionally, if you want to NEVER show the loading screen on intro.html, add this:

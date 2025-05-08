@@ -157,10 +157,7 @@ a.nav-link, button.nav-link {
     font-family: 'Jersey 10', sans-serif; /* Font for navigation links */
 }
 
-.text-muted {
-    font-family: 'Poppins', sans-serif; /* Font for muted text */
-    color: #d6eaff; /* Light blue for muted text */
-}
+
 
 div.unknow {
     background-color: rgba(38, 6, 58, 0.815);
@@ -169,29 +166,154 @@ div.unknow {
 }
 
 #navigation{
-    background-color: rgba(1, 36, 53, 0.8);
+    background-color: rgb(6, 1, 12);
     backdrop-filter: blur(7px);
     width: 100%;
+    border-bottom: 2px solid rgba(147, 112, 219, 0.6);
+    box-shadow: 0 4px 15px rgba(147, 112, 219, 0.4);
+    position: relative;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-a.nav-link
-{
+/* Add a glowing border effect to the navbar */
+#navigation::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(147, 112, 219, 0.7), 
+        rgba(225, 213, 240, 0.8), 
+        rgba(147, 112, 219, 0.7), 
+        transparent);
+    background-size: 200% 100%;
+    animation: glowingBorder 3s linear infinite;
+}
+
+@keyframes glowingBorder {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+a.nav-link {
+    text-decoration: none !important;
     font-size: 35px; /* Standardized font size */
-    color: #f1e6e6;
+    color: #e1d5f0; /* Light purple text */
     font-family: "Jersey 10", sans-serif;
     font-weight: 100;
     font-style: normal;
+    position: relative;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(147, 112, 219, 0.6);
+    display: inline-flex;
+    align-items: center;
 }
 
-a.nav-link:hover{
-    color: bisque;
+/* Underline effect for nav links */
+a.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #9370DB, #e1d5f0, #9370DB, transparent);
+    transition: width 0.3s ease;
 }
 
-li.nav-item{
+a.nav-link:hover {
+    color: #b19cd9;
+    transform: translateY(-2px);
+    text-shadow: 0 0 8px rgba(147, 112, 219, 0.8);
+}
+
+/* Hover effect for nav links */
+
+a.nav-link:hover::after {
+    width: calc(100% - 30px);
+}
+
+/* Active page indicator */
+a.nav-link.active {
+    color: #23d7a5 !important;
+        text-decoration: none !important;
+}
+
+a.nav-link.active::after {
+    width: calc(100% - 30px);
+    animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(147, 112, 219, 0.8);
+    }
+}
+
+li.nav-item {
     display: inline-block;
-    margin-left: 100px;
+    margin-left: 80px;
     margin-right: 10px;
     white-space: nowrap;
+    position: relative;
+}
+
+/* Logo styling and animations */
+.logo-portfolio {
+    margin-right: 20px;
+    position: relative;
+}
+
+.logo-portfolio a {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.logo-portfolio a:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.logo-portfolio a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 150px;
+    box-shadow: 0 0 0 0 rgba(77, 226, 57, 0.7);
+    animation: pulse-ring 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo-portfolio a:hover::after {
+    opacity: 1;
+}
+
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(77, 226, 57, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(77, 226, 57, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(77, 226, 57, 0);
+    }
 }
 
 img.img-fluid{
@@ -229,27 +351,220 @@ h1.titre_a_propos{
     top: 35px;
 }
 
-button#open.nav-link
-{
-    background-color: #ffffff;
+button#open.nav-link {
+    background-color: rgba(147, 112, 219, 0.2);
     border-radius: 90px;
     width: 100%;
-    border: 10px;
+    border: 2px solid rgba(147, 112, 219, 0.5);
     font-size: 40px;
-    color: #181414;
+    color: #e1d5f0;
     font-family: "Jersey 10", sans-serif; /* Match the font of the navbar links */
     margin-left: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.3);
 }
 
-button#open.nav-link .text-muted {
+button#open.nav-link::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(147, 112, 219, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+}
+
+button#open.nav-link:hover {
+    background-color: rgba(147, 112, 219, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(147, 112, 219, 0.5);
+    color: #ffffff;
+}
+
+button#open.nav-link:hover::before {
+    opacity: 1;
+    animation: pulse 2s infinite;
+}
+
+button#open.nav-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(147, 112, 219, 0.4);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+button#open.nav-link {
     font-family: "Jersey 10", sans-serif; /* Match the font for muted text */
     font-size: 40px;
+    color: #d3c5ee;
+    text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+    transition: all 0.3s ease;
+}
+
+button#open.nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 .text-muted{
-    font-size: 30px; /* Reduced font size for text elements */
-    font-family: "poppins", sans-serif;
+    font-size: 40px;
+    color: #b19cd9 !important;
+    font-family: "Jersey 10", sans-serif;
 }
+
+
+
+
+
+/* Contact button styling is handled in the button#open.nav-link section */
+
+/* Contact Popup Styling */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.popup-content {
+    background-color: rgba(38, 6, 78, 0.98);
+    margin: 15% auto;
+    padding: 40px;
+    border: 4px solid rgba(147, 112, 219, 0.9);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    color: #e1d5f0;
+    box-shadow: 0 0 30px rgba(147, 112, 219, 0.7), 0 0 60px rgba(38, 6, 78, 0.8);
+    position: relative;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* No background overlay needed since we removed the background image */
+
+.popup-content h1 {
+    color: #b19cd9;
+    text-align: center;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 46px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(147, 112, 219, 0.9);
+    letter-spacing: 1px;
+}
+
+.popup-content p, .popup-content a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.popup-content a {
+    color: #b19cd9;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: rgba(147, 112, 219, 0.1);
+    border: 1px solid rgba(147, 112, 219, 0.3);
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.3);
+}
+
+.popup-content a:hover {
+    color: #ffffff;
+    background-color: rgba(147, 112, 219, 0.3);
+    text-shadow: 0 0 8px rgba(147, 112, 219, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(147, 112, 219, 0.5);
+    border: 1px solid rgba(147, 112, 219, 0.7);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ff3333;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(211, 17, 17, 0.1);
+    border: 2px solid rgba(211, 17, 17, 0.3);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 8px rgba(211, 17, 17, 0.8);
+    box-shadow: 0 0 10px rgba(211, 17, 17, 0.3);
+    line-height: 0.7;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ff5555;
+    text-decoration: none;
+    transform: scale(1.2);
+    text-shadow: 0 0 15px rgba(255, 0, 0, 1);
+    background: rgba(211, 17, 17, 0.2);
+    border: 2px solid rgba(211, 17, 17, 0.6);
+    box-shadow: 0 0 20px rgba(211, 17, 17, 0.5);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    85% {
+        transform: scale(0.98);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 
 .profil{
     top: 57px;
@@ -471,43 +786,11 @@ hr{
 }
 
 
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(30, 1, 36, 0.89); /* Match other pages */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    z-index: 100; /* Ensure it appears above other elements */
-}
-
-.popup-content {
-    background: rgb(248, 248, 246); /* Match other pages */
-    border-radius: 10px;
-    padding-left: 10px;
-    text-align: left;
-    position: relative;
-    width: 1000px;
-    height: 500px;
-    font-size: 40px;
-}
+/* This popup styling has been updated and moved to the top section */
 
 
 
-.close-btn {
-    border: 13px;
-    color: rgb(224, 27, 27);
-    padding-right: 35px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 80px;
-    text-align: right;
-    padding-bottom: 20px;
-    margin: auto;
-}
+/* This close-btn styling has been updated and moved to the top section */
 
 #about-me, .mon_parcours, .mon_projet {
     border: 8px solid #f1e6e6; /* Keep the solid border */

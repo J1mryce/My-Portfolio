@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JVScript/pop_up.js"></script>
     <script src="JVScript/projet_univ.js" defer></script>
+    <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet"/>
     <style>
         /* Loading Screen Styles */
         @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
@@ -93,46 +94,46 @@
     
     <header>
         <section id="navigation">
-            <div class="true-navbar" id="menu">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="logo-portfolio">
-                            <a href="index.html">
-                                <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
-                            </a>
-                        </div>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="profil.html">MON PROFIL</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
-                              </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
-                                </li>
-                                <li class="nav-item">
-                                    <button class="nav-link" id="open" aria-disabled="true">Contactez<small class="text-muted"> moi</small></button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+        <div class="true-navbar" id="menu">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="logo-portfolio">
+                    <a href="index.html">
+                        <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="profil.html">MON PROFIL</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="perso_projects.html">MES PROJETS PERSONNELLES</a>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="projet_univ.html">MES PROJETS UNIVERSITAIRES</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="open" aria-disabled="true">
+                                Contactez<small class="text-muted"> moi</small>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+            </nav>
         </section>
-        <div class="popup" id="contact">
+        <!-- Contact popup markup -->
+        <div class="popup" id="contact" style="display:none;">
             <div class="popup-content">
                 <div class="close-btn" id="closePopup"><span>&times;</span></div>
-                <h1>Mes Contacts</h1> <br> <p>MAIL: jimryce.jouenne@outlook.com</p>
-                <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-                <br>
-                <img src="./IMG/icon/linkdin.svg">   LINKDIN:<a href=https://www.linkedin.com/in/jimryce> linkdin</a>
-           
+                <h1>Mes Contacts</h1>
+                <p><strong>EMAIL:</strong> jimryce.jouenne@outlook.com</p>
+                <p><strong>LINKEDIN:</strong> <a href="https://www.linkedin.com/in/jimryce" target="_blank">www.linkedin.com/in/jimryce</a></p>
             </div>
         </div>
         <img src="IMG/arcade-framev2.png" alt="Logo" class="arcade-machine">
@@ -341,6 +342,9 @@
 </header>
 </div>
 </div>
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 <script>
     const openButton = document.getElementById('open');
     const contact = document.getElementById('contact');
@@ -359,6 +363,19 @@
             if (loadingOverlay) loadingOverlay.style.display = 'none';
             if (loading) loading.style.display = 'none';
         }, 2000); // Delay of 2 seconds
+        
+        // Set active class based on current page
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage) {
+                link.classList.add('active');
+            }
+        });
+        
+    
     });
 
     // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
