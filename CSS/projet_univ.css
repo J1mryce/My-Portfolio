@@ -94,7 +94,6 @@ div.color {
 
 .text-muted {
     font-size: 40px;
-    color: #b19cd9 !important;
     font-family: "Jersey 10", sans-serif;
 }
 
@@ -205,8 +204,8 @@ div.color {
 }
 
 #navigation{
-    background-color: rgb(6, 1, 12);
-    backdrop-filter: blur(7px);
+    background-color: rgba(10, 51, 75, 0.808);
+    backdrop-filter: blur(2px);
     width: 100%;
     border-bottom: 2px solid rgba(147, 112, 219, 0.6);
     box-shadow: 0 4px 15px rgba(147, 112, 219, 0.4);
@@ -313,13 +312,14 @@ button#open.nav-link {
     width: 100%;
     border: 2px solid rgba(147, 112, 219, 0.5);
     font-size: 40px;
-    color: #e1d5f0;
+    color: #d3c5ee;
     font-family: "Jersey 10", sans-serif; /* Match the font of the navbar links */
-    margin-left: 50px;
+    margin-left: 100px;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(147, 112, 219, 0.3);
+      text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
 }
 
 button#open.nav-link::before {
@@ -367,25 +367,9 @@ button#open.nav-link:active {
     }
 }
 
-/* Additional styles from profile.css */
-button#open.nav-link {
-    font-family: "Jersey 10", sans-serif;
-    font-size: 40px;
-    color: #d3c5ee;
-    text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
-    transition: all 0.3s ease;
-}
 
-button#open.nav-link:hover {
-    color: #ffffff !important;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
-}
 
-.text-muted {
-    font-size: 40px;
-    color: #b19cd9 !important;
-    font-family: "Jersey 10", sans-serif;
-}
+
 
 /* Logo styling and animations */
 .logo-portfolio {
