@@ -35,8 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Show carousel controls
                 carouselControls.forEach(control => control.style.display = 'block');
                 imagePopup.style.display = 'flex';
+                // Remove concept art class if it exists
+                imagePopup.classList.remove('concept-art-popup');
+            } else if (this.id === 'image6') {
+                // Special handling for concept art image
+                showSingleImage(this.getAttribute('data-src'));
+                // Add special class for concept art popup
+                imagePopup.classList.add('concept-art-popup');
             } else {
                 showSingleImage(this.getAttribute('data-src'));
+                // Remove concept art class if it exists
+                imagePopup.classList.remove('concept-art-popup');
             }
         });
     });
@@ -44,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
     imagePopup.addEventListener('click', (event) => {
         if (event.target === imagePopup) {
             imagePopup.style.display = 'none';
+            // Remove concept art class when popup is closed
+            imagePopup.classList.remove('concept-art-popup');
         }
     });
 
