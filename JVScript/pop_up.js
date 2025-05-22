@@ -34,9 +34,9 @@ function attachPopupListeners() {
 
             // Vérifier si popupTextElement est un paragraphe
             if (textElement && (textElement.nodeName === 'P'|| textElement.nodeName === 'SPAN')) {
-                // Récupérer et afficher le texte spécifique
-                let text = textElement.textContent;
-                popupTextElement.textContent = text;
+                // Récupérer et afficher le HTML complet (y compris les liens)
+                let html = textElement.innerHTML;
+                popupTextElement.innerHTML = html;
             }
 
             popupImage.style.display = 'flex';
@@ -46,6 +46,7 @@ function attachPopupListeners() {
             };
 
             window.onclick = function(event) {
+                // Only close if clicking directly on the popup background (not on links or other content)
                 if (event.target == popupImage) {
                     popupImage.style.display = 'none';
                 }
