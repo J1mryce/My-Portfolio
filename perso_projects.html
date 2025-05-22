@@ -30,10 +30,10 @@
             font-family: "Press Start 2P", system-ui;
             line-height: 1.8; /* Adjusted line height */
             font-weight: bold;
-            background: 
+            background:
                 linear-gradient(#e1d5f0 0 0) left,
                 linear-gradient(#e1d5f0 0 0) right;
-            background-repeat: no-repeat; 
+            background-repeat: no-repeat;
             border-right: 10px solid #0000; /* Increased border size */
             border-left: 10px solid #0000; /* Increased border size */
             background-origin: border-box;
@@ -61,7 +61,7 @@
             left: 0;
             width: 40px; /* Increased width */
             height: 100px; /* Increased height */
-            background: 
+            background:
                 linear-gradient(90deg, #9ce0ca 8px, #0000 0 calc(100% - 8px), #9ce0ca 0) bottom / 40px 30px,
                 linear-gradient(90deg, rgb(77, 226, 57) 8px, #eb050500 0 calc(100% - 8px), rgb(77, 226, 57) 0) bottom 20px left 0 / 40px 10px,
                 linear-gradient(#9ce0ca 0 0) bottom 7px left 0 / 40px 12px,
@@ -118,7 +118,7 @@
             border: 4px solid rgba(42, 15, 197, 0.664);
             background-color: rgba(7, 53, 97, 0.466);
         }
-        
+
         /* Special styling for concept art popup */
         #imagePopup.concept-art-popup img {
             max-width: 70%;
@@ -181,15 +181,15 @@
         <p class="infos">Pour mon projet de portfolio, j'ai voulu mettre en avant un projet réalisé hors du cadre universitaire afin de montrer ma créativité et mon expérience dans ce domaine.<br><br>
 
         En effectuant des recherches sur des travaux liés au CONCEPT ART et au DIGITAL ART, je suis tombé sur une vidéo présentant une technique souvent utilisée pour réaliser des concepts art ou des peintures numériques, appelée le PHOTOBASHING.<br><br>
-        
+
         Cette technique consiste à utiliser des éléments, tels que des photos par exemple, et à partir de ces derniers, à les disposer d'une manière spécifique pour créer une mise en scène ou même des personnages, tout en repassant dessus avec un pinceau pour créer une illustration plus détaillée et artistique.<br><br>
-        
+
         J'ai donc tenté de réaliser une illustration sur PHOTOSHOP qui s'inspirerait de cette méthode, à l'aide de tutoriels et de guides qui montrent la manière dont il faut procéder pour réaliser ce genre de travaux.<br><br>
-        
+
         Pour cette première illustration utilisant la méthode du PHOTOBASHING, j'ai choisi de m'inspirer de KINGDOM HEARTS IV, un jeu faisant partie d'une saga à laquelle j'ai beaucoup joué et dont j'attends la sortie avec impatience.<br><br>
-        
+
         Pour parvenir à réaliser cette affiche, j'ai utilisé de nombreuses photos prises dans les rues de TOKYO. Je les ai ensuite assemblées et retouchées pour que l'environnement soit le plus visuellement attrayant possible.<br><br>
-        
+
         J'ai par la suite ajouté un filtre de découpe sur l'ensemble de l'illustration pour obtenir un rendu homogène.</p>
     </div>
 <hr>
@@ -207,7 +207,7 @@
     </div>
     <hr>
     <div class="image-container">
-        <img src="IMG/logov2.png" id="image3" data-src="IMG/Preview/Capture d'écran 2025-03-18 173342.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <img src="IMG/logov2.png" id="image3" data-src="IMG/Preview/Capture d'écran 2025-03-18 173342.png" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso">
         <p class="infos">Même avant de rejoindre cette formation, j'ai toujours été plus intéressé par la <br>
             partie Création Numérique/Design Graphique qu'elle propose. <br>
             Cela ne m'a cependant pas empêché de développer des compétences dans la partie Développement Web de la formation <br>
@@ -216,7 +216,6 @@
             J'ai également utilisé JavaScript pour toute la partie qui concerne les interactions du site, telles <br>
             que les images cliquables et les boutons. <br>
             <br>
-            N'ayant pas terminé ma deuxième année au sein de la formation, il ne s'agit que d'une version semi-complète du portfolio. Des changements seront apportés à ce dernier dans les semaines qui suivent.
     </div>
     <hr>
     <div class="image-container">
@@ -229,7 +228,7 @@
       </div>
 
       <div class="image-container">
-        <img src="IMG/Preview/Saginya.jpeg" id="image5" data-src="IMG/Preview/Saginya.jpeg" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <img src="IMG/Preview/Saginya.jpeg" id="image5" data-src="IMG/Preview/Saginya.jpeg" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso">
         <p class="infos">
             Voulant devenir un GAME DESIGNER et étant passioné par la modélisation 3D, j'ai moi meme créer mon propre personnage en 3d
             <br><a href="//drive.google.com/file/d/1PppxoHXWFJAbR6ou0KxvWRkbmtkpMoUQ/view?usp=sharing">Lien drive vers l'objet 3D</a>
@@ -277,26 +276,26 @@
             const openButton = document.getElementById('open');
             const contact = document.getElementById('contact');
             const closePopupButton = document.getElementById('closePopup');
-            
+
             console.log('Open button:', openButton);
             console.log('Contact popup:', contact);
             console.log('Close button:', closePopupButton);
-            
+
             if (openButton && contact && closePopupButton) {
                 // Initially hide the popup
                 contact.style.display = 'none';
-                
+
                 openButton.addEventListener('click', function(e) {
                     e.preventDefault();
                     console.log('Contact button clicked');
                     contact.style.display = 'flex';
                 });
-                
+
                 closePopupButton.addEventListener('click', function() {
                     console.log('Close button clicked');
                     contact.style.display = 'none';
                 });
-                
+
                 window.addEventListener('click', function(event) {
                     if (event.target === contact) {
                         console.log('Clicked outside popup');
@@ -307,7 +306,7 @@
                 console.error('One or more elements for contact popup not found');
             }
         });
-    
+
         window.addEventListener('load', function() {
             const loadingOverlay = document.getElementById('loading-overlay');
             const loading = document.getElementById('loading');
@@ -315,27 +314,27 @@
                 if (loadingOverlay) loadingOverlay.style.display = 'none';
                 if (loading) loading.style.display = 'none';
             }, 2000); // Delay of 2 seconds
-            
+
             // Set active class based on current page
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
-            
+
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href === currentPage) {
                     link.classList.add('active');
                 }
             });
-         
+
         });
-    
+
         // Optionally, if you want to NEVER show the loading screen on intro.html, add this:
         if (window.location.pathname.endsWith('intro.html')) {
             var loading = document.getElementById('loading');
             if (loading) loading.style.display = 'none';
         }
     </script>
-    
+
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
