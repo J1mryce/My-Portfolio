@@ -198,7 +198,7 @@
     <div class="popup" id="contact">
         <div class="popup-content">
             <h1>Mes Contacts</h1>
-            <p><strong>EMAIL:</strong> jimryce.jouenne@outlook.com</p>
+            <p><strong>EMAIL:</strong> jimrycejouenne@outlook.com</p>
             <p><strong>LINKEDIN:</strong> <a href="https://www.linkedin.com/in/jimryce" target="_blank">www.linkedin.com/in/jimryce</a></p>
         </div>
     </div>
@@ -405,35 +405,39 @@ Cette première approche du design d’interface au sein d’un jeu  m’a permi
             console.log('DOM fully loaded');
             const openButton = document.getElementById('open');
             const contact = document.getElementById('contact');
-            const closePopupButton = document.getElementById('closePopup');
-
-            console.log('Open button:', openButton);
-            console.log('Contact popup:', contact);
-            console.log('Close button:', closePopupButton);
-
+            // Add a close button if not present
+            let closePopupButton = document.getElementById('closePopup');
+            if (!closePopupButton) {
+                // Dynamically add a close button if missing
+                const closeBtn = document.createElement('button');
+                closeBtn.id = 'closePopup';
+                closeBtn.className = 'popup-close-btn';
+                closeBtn.innerHTML = '&times;';
+                closeBtn.style.position = 'absolute';
+                closeBtn.style.top = '10px';
+                closeBtn.style.right = '10px';
+                closeBtn.style.fontSize = '2em';
+                closeBtn.style.background = 'transparent';
+                closeBtn.style.border = 'none';
+                closeBtn.style.color = '#333';
+                closeBtn.style.cursor = 'pointer';
+                contact.querySelector('.popup-content').appendChild(closeBtn);
+                closePopupButton = closeBtn;
+            }
             if (openButton && contact && closePopupButton) {
-                // Initially hide the popup
                 contact.style.display = 'none';
-
                 openButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    console.log('Contact button clicked');
                     contact.style.display = 'flex';
                 });
-
                 closePopupButton.addEventListener('click', function() {
-                    console.log('Close button clicked');
                     contact.style.display = 'none';
                 });
-
                 window.addEventListener('click', function(event) {
                     if (event.target === contact) {
-                        console.log('Clicked outside popup');
                         contact.style.display = 'none';
                     }
                 });
-            } else {
-                console.error('One or more elements for contact popup not found');
             }
         });
 

@@ -132,7 +132,7 @@
             <div class="popup-content">
                 <div class="close-btn" id="closePopup"><span>&times;</span></div>
                 <h1>Mes Contacts</h1>
-                <p><strong>EMAIL:</strong> jimryce.jouenne@outlook.com</p>
+                <p><strong>EMAIL:</strong> jimrycejouenne@outlook.com</p>
                 <p><strong>LINKEDIN:</strong> <a href="https://www.linkedin.com/in/jimryce" target="_blank">www.linkedin.com/in/jimryce</a></p>
             </div>
         </div>
@@ -447,13 +447,39 @@ Ce projet m’a aidé à mieux visualiser et organiser les parcours utilisateurs
 <script>
     const openButton = document.getElementById('open');
     const contact = document.getElementById('contact');
-    const closePopupButton = document.getElementById('closePopup');
-    openButton.addEventListener('click', function() { contact.style.display = 'flex';
-    });
-    closePopupButton.addEventListener('click', function() { contact.style.display = 'none';
-    });
-    window.addEventListener('click', function(event) { if (event.target === contact) { contact.style.display = 'none';
-    } });
+    let closePopupButton = document.getElementById('closePopup');
+    if (!closePopupButton) {
+        // Dynamically add a close button if missing
+        const closeBtn = document.createElement('button');
+        closeBtn.id = 'closePopup';
+        closeBtn.className = 'popup-close-btn';
+        closeBtn.innerHTML = '&times;';
+        closeBtn.style.position = 'absolute';
+        closeBtn.style.top = '10px';
+        closeBtn.style.right = '10px';
+        closeBtn.style.fontSize = '2em';
+        closeBtn.style.background = 'transparent';
+        closeBtn.style.border = 'none';
+        closeBtn.style.color = '#333';
+        closeBtn.style.cursor = 'pointer';
+        contact.querySelector('.popup-content').appendChild(closeBtn);
+        closePopupButton = closeBtn;
+    }
+    if (openButton && contact && closePopupButton) {
+        contact.style.display = 'none';
+        openButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            contact.style.display = 'flex';
+        });
+        closePopupButton.addEventListener('click', function() {
+            contact.style.display = 'none';
+        });
+        window.addEventListener('click', function(event) {
+            if (event.target === contact) {
+                contact.style.display = 'none';
+            }
+        });
+    }
 
     window.addEventListener('load', function() {
         const loadingOverlay = document.getElementById('loading-overlay');
