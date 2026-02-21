@@ -85,9 +85,10 @@
 body {
     background-image: url("../IMG/mario.gif");
     background-repeat: no-repeat;
-    background-size: 100%;
+    /* cover ensures the image fills the viewport while maintaining aspect ratio */
+    background-size: cover;
     background-attachment: fixed;
-    background-position: center calc(0% - 133px); 
+    background-position: center calc(0% - 133px);
     margin: 0;
     box-sizing: border-box; /* Include padding in width and height */
     font-family: 'Poppins', sans-serif; /* Ensure the default font is Poppins */
