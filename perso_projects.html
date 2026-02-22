@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" type="text/css" href="CSS\perso_projects.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="JVScript/projetperso.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer src="JVScript/projetperso.js"></script>
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Press+Start+2P&display=swap');
@@ -136,7 +140,7 @@
             <div class="container-fluid">
                 <div class="logo-portfolio">
                     <a href="index.html">
-                        <img class="img" id="logo" src="IMG/logov2.png" width="80" style="border-radius: 150px !important;">
+                        <img loading="lazy" class="img" id="logo" src="IMG/logov2.png" width="80" height="80" style="border-radius: 150px !important;">
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -178,7 +182,7 @@
     </div>
 
     <div class="image-container">
-        <img src="IMG/Preview/final - Copie.png" id="image1" data-src="IMG/Preview/final - Copie.png" class="rounded d-block image-popup-trigger" alt="..." name="perso">
+        <img loading="lazy" src="IMG/Preview/final - Copie.png" id="image1" data-src="IMG/Preview/final - Copie.png" class="rounded d-block image-popup-trigger" alt="..." name="perso" width="1200" height="800">
         <p class="infos">Pour mon projet de portfolio, j'ai voulu mettre en avant un projet réalisé hors du cadre universitaire afin de montrer ma créativité et mon expérience dans ce domaine.<br><br>
 
         En effectuant des recherches sur des travaux liés au CONCEPT ART et au DIGITAL ART, je suis tombé sur une vidéo présentant une technique souvent utilisée pour réaliser des concepts art ou des peintures numériques, appelée le PHOTOBASHING.<br><br>
@@ -195,7 +199,7 @@
     </div>
 <hr>
     <div class="image-container">
-        <img src="IMG/Preview/V.FINALE.png" id="image2" data-src="IMG/Preview/V.FINALE.png" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso">
+        <img loading="lazy" src="IMG/Preview/V.FINALE.png" id="image2" data-src="IMG/Preview/V.FINALE.png" class="rounded d-block image-popup-trigger carousel-trigger" alt="..." name="perso" width="1200" height="800">
         <p class="infos">Pendant ma deuxième année en BUT MMI, j'ai eu l'occasion d'améliorer mes compétences en Design Graphique, que j'avais déjà acquises lors de ma toute première année au sein de la formation, grâce notamment à un projet de charte graphique.
 
             Étant donné que je suis actuellement dans le parcours Développement Web, les cours sont plus consacrés à la création d'applications et de sites web qu'à des projets en lien avec le domaine du design graphique.
@@ -339,7 +343,12 @@
             if (loading) loading.style.display = 'none';
         }
     </script>
-    
+    <script>
+      // ensure lazy loading applied to any images not explicitly marked
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('img').forEach(img => img.loading = 'lazy');
+      });
+    </script>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
