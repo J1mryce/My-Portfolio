@@ -73,6 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 carouselControls.forEach(control => control.style.display = 'block');
                 imagePopup.style.display = 'flex';
                 imagePopup.classList.remove('concept-art-popup');
+            } else if (this.id === 'image7') {
+                // Carousel for Keyblade Vanitas
+                showCarousel([
+                    "IMG/Preview/Void Gear.png",
+                    "IMG/Preview/Keyblade_Vanitas_Mesh.png",
+                    "IMG/Preview/Keyblade_Vanitas_Modele.png"
+                ]);
+                imagePopup.classList.remove('concept-art-popup');
             } else {
                 // Default single image popup
                 showSingleImage(this.getAttribute('data-src'));
